@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nonprofit Acceptable Use Policy Generator</title>
+    <link rel="icon" type="image/svg+xml" href="assets/file-solid.svg">
+    <link rel="stylesheet" href="../shared/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-theme">
+    <header class="header">
+        <div class="header-content">
+            <h1>Nonprofit Acceptable Use Policy Generator</h1>
+        </div>
+        <div class="header-nav">
+            <a href="../" class="back-btn-header">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            <div class="provider">
+                <span>Provided by</span>
+                <a href="https://goodhearttech.org/" target="_blank" rel="noopener">
+                    <img src="https://graphics.goodhearttech.org/GHT-AllWhiteLogo-phishsite.png" alt="Good Heart Tech Logo" class="logo">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="wizard-container" id="wizard-container">
+            <!-- Introduction -->
+            <div class="intro-section">
+                <h4>An Acceptable Use Policy defines how staff, volunteers, and contractors may use your organization's technology and resources, and what is off-limits.</h4>
+                <div class="info-bubble">
+                    <div class="info-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="info-content">
+                        Have everyone who uses your organization's email, network, devices, or software read and acknowledge this policy, ideally during onboarding.
+                    </div>
+                </div>
+
+                <a href="../disclaimer.html" class="disclaimer-btn"><i class="fas fa-exclamation-circle"></i> View our full disclaimer before using this tool.</a>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="progress-steps">
+                    <div class="step active" data-step="1">1</div>
+                    <div class="step" data-step="2">2</div>
+                    <div class="step" data-step="3">3</div>
+                    <div class="step" data-step="4">4</div>
+                    <div class="step" data-step="5">5</div>
+                </div>
+                <div class="progress-labels">
+                    <span>Step <span id="current-step">1</span> of 5</span>
+                </div>
+            </div>
+
+            <!-- Question Forms -->
+            <div class="question-forms">
+                <!-- Question 1 -->
+                <div class="question-card active" id="question-1">
+                    <h2>Organization Information</h2>
+                    <div class="form-group">
+                        <label for="org-name">What is your organization's name? <span class="required">*</span></label>
+                        <input type="text" id="org-name" placeholder="e.g., Good Heart Technology" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">What email address should staff contact with questions about this policy? <span class="required">*</span></label>
+                        <input type="email" id="contact-email" placeholder="e.g., it@yournonprofit.org" required>
+                    </div>
+                    <div class="button-row">
+                        <button class="btn next-btn" data-next="2">Continue <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question-card" id="question-2">
+                    <h2>Services &amp; Resources Covered</h2>
+                    <p class="question-text">Which of your organization's resources does this policy cover? <span class="required">*</span></p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="resource-type" value="email" id="resource-email" checked>
+                            <span class="checkbox-custom"></span>
+                            Email
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="resource-type" value="internet" id="resource-internet" checked>
+                            <span class="checkbox-custom"></span>
+                            Internet Access
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="resource-type" value="devices" id="resource-devices" checked>
+                            <span class="checkbox-custom"></span>
+                            Computers &amp; Devices
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="resource-type" value="software" id="resource-software" checked>
+                            <span class="checkbox-custom"></span>
+                            Software &amp; Cloud Applications
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="resource-type" value="network" id="resource-network" checked>
+                            <span class="checkbox-custom"></span>
+                            Network &amp; Wi-Fi
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="resource-other">Anything else covered? (optional)</label>
+                        <textarea id="resource-other" name="resource-other" rows="2" placeholder="e.g., shared printers, phone systems"></textarea>
+                    </div>
+                    <div class="button-row">
+                        <button class="btn back-btn" data-prev="1"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="btn next-btn" data-next="3">Continue <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question-card" id="question-3">
+                    <h2>Prohibited &amp; Unacceptable Uses</h2>
+                    <p class="question-text">Which of these should be explicitly called out as prohibited? <span class="required">*</span></p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="prohibited-type" value="illegal" id="prohibited-illegal" checked>
+                            <span class="checkbox-custom"></span>
+                            Illegal activity of any kind
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="prohibited-type" value="harassment" id="prohibited-harassment" checked>
+                            <span class="checkbox-custom"></span>
+                            Harassment, discrimination, or offensive content
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="prohibited-type" value="unauthorized-access" id="prohibited-unauthorized-access" checked>
+                            <span class="checkbox-custom"></span>
+                            Unauthorized access to systems or data
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="prohibited-type" value="personal-use" id="prohibited-personal-use" checked>
+                            <span class="checkbox-custom"></span>
+                            Excessive personal use during work hours
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="prohibited-type" value="unauthorized-software" id="prohibited-unauthorized-software" checked>
+                            <span class="checkbox-custom"></span>
+                            Installing unauthorized software
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="prohibited-type" value="credential-sharing" id="prohibited-credential-sharing" checked>
+                            <span class="checkbox-custom"></span>
+                            Sharing passwords or login credentials
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="prohibited-other">Anything else you'd like to prohibit? (optional)</label>
+                        <textarea id="prohibited-other" name="prohibited-other" rows="2" placeholder="e.g., cryptocurrency mining, running a personal business"></textarea>
+                    </div>
+                    <div class="button-row">
+                        <button class="btn back-btn" data-prev="2"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="btn next-btn" data-next="4">Continue <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="question-card" id="question-4">
+                    <h2>Monitoring &amp; Privacy</h2>
+                    <div class="form-group">
+                        <label>Does your organization monitor use of its systems (e.g., email, internet, devices)? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="monitoring" value="yes" id="monitoring-yes">
+                                <span class="radio-custom"></span>
+                                Yes
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="monitoring" value="no" id="monitoring-no">
+                                <span class="radio-custom"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="monitoring-details">Anything specific you want staff to know about monitoring? (optional)</label>
+                        <textarea id="monitoring-details" name="monitoring-details" rows="3" placeholder="e.g., email is scanned for security threats, device activity may be logged by our IT provider"></textarea>
+                    </div>
+                    <div class="button-row">
+                        <button class="btn back-btn" data-prev="3"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="btn next-btn" data-next="5">Continue <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="question-card" id="question-5">
+                    <h2>Enforcement</h2>
+                    <div class="form-group">
+                        <label>How should violations of this policy generally be handled? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="enforcement" value="progressive" id="enforcement-progressive" checked>
+                                <span class="radio-custom"></span>
+                                Progressive discipline (warning, then escalating action)
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="enforcement" value="case-by-case" id="enforcement-case-by-case">
+                                <span class="radio-custom"></span>
+                                Case-by-case, at leadership's discretion
+                            </label>
+                        </div>
+                    </div>
+                    <div class="button-row">
+                        <button class="btn back-btn" data-prev="4"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="btn generate-btn" id="generate-policy">Generate Policy <i class="fas fa-file-alt"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toggle Button for Wizard -->
+        <div class="toggle-wizard-container" id="toggle-wizard-container" style="display: none;">
+            <button class="btn toggle-wizard-btn" id="toggle-wizard-btn">
+                <i class="fas fa-chevron-down"></i> Show/Hide Form
+            </button>
+        </div>
+
+        <!-- Generated Policy Display Section -->
+        <div class="policy-display" id="policy-display" style="display: none;">
+            <div id="success-message" class="success-message">
+                <i class="fas fa-check-circle"></i> Your acceptable use policy has been generated successfully!
+            </div>
+
+            <div class="copy-buttons">
+                <button class="btn copy-btn" data-format="plaintext">
+                    <i class="fas fa-file-alt"></i> Copy as Plain Text
+                </button>
+                <button class="btn copy-btn" data-format="markdown">
+                    <i class="fa-brands fa-markdown"></i> Copy as Markdown
+                </button>
+                <button class="btn copy-btn" data-format="richtext">
+                    <i class="fa-solid fa-code"></i> Copy as HTML
+                </button>
+            </div>
+
+            <div class="policy-content-container">
+                <div id="policy-content" class="policy-content"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+            <a href="https://goodhearttech.org/" target="_blank" rel="noopener">
+                    <span>Created with 💜 by</span>
+                <img src="https://graphics.goodhearttech.org/GHT-AllWhiteLogo-phishsite.png" alt="Good Heart Tech Logo" class="logo">
+            </a>
+            </div>
+            <div class="footer-copyright">
+            <p>&copy; <span id="current-year"></span> Good Heart Tech. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="../"><i class="fa-solid fa-arrow-left-long"></i> Back to Policy Generator Home</a> | <a href="../disclaimer.html">Disclaimer</a> | <a target="_blank" href="https://github.com/Good-Heart-Technology/Nonprofit-Policy-Generator">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../shared/engine.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

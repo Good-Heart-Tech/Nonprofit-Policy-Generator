@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nonprofit Mobile Device Policy Generator</title>
+    <link rel="icon" type="image/svg+xml" href="assets/file-solid.svg">
+    <link rel="stylesheet" href="../shared/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-theme">
+    <header class="header">
+        <div class="header-content">
+            <h1>Nonprofit Mobile Device Policy Generator</h1>
+        </div>
+        <div class="header-nav">
+            <a href="../" class="back-btn-header">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            <div class="provider">
+                <span>Provided by</span>
+                <a href="https://goodhearttech.org/" target="_blank" rel="noopener">
+                    <img src="https://graphics.goodhearttech.org/GHT-AllWhiteLogo-phishsite.png" alt="Good Heart Tech Logo" class="logo">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="wizard-container" id="wizard-container">
+            <!-- Introduction -->
+            <div class="intro-section">
+                <h4>A Mobile Device Policy sets security and usage requirements for phones and tablets used to access your organization's data, whether the device is organization-owned or personal (BYOD).</h4>
+                <div class="info-bubble">
+                    <div class="info-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="info-content">
+                        A lost phone with access to your email or donor database is one of the most common ways nonprofits lose sensitive data. Requiring a passcode and remote wipe consent are two of the cheapest ways to reduce that risk.
+                    </div>
+                </div>
+
+                <a href="../disclaimer.html" class="disclaimer-btn"><i class="fas fa-exclamation-circle"></i> View our full disclaimer before using this tool.</a>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="progress-steps">
+                    <div class="step active" data-step="1">1</div>
+                    <div class="step" data-step="2">2</div>
+                    <div class="step" data-step="3">3</div>
+                    <div class="step" data-step="4">4</div>
+                    <div class="step" data-step="5">5</div>
+                    <div class="step" data-step="6">6</div>
+                </div>
+                <div class="progress-labels">
+                    <span>Step <span id="current-step">1</span> of 6</span>
+                </div>
+            </div>
+
+            <!-- Question Forms -->
+            <div class="question-forms">
+                <!-- Question 1 -->
+                <div class="question-card active" id="question-1">
+                    <h2>Organization Information</h2>
+                    <div class="form-group">
+                        <label for="org-name">What is your organization's name? <span class="required">*</span></label>
+                        <input type="text" id="org-name" placeholder="e.g., Good Heart Technology" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">What email address should staff contact with questions or to report a lost device? <span class="required">*</span></label>
+                        <input type="email" id="contact-email" placeholder="e.g., it@yournonprofit.org" required>
+                    </div>
+                    <div class="button-row">
+                        <button class="btn next-btn" data-next="2">Continue <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question-card" id="question-2">
+                    <h2>Scope</h2>
+                    <div class="form-group">
+                        <label>Which devices does this policy cover? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="scope" value="byod" id="scope-byod">
+                                <span class="radio-custom"></span>
+                                Personal devices only (BYOD)
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="scope" value="org-owned" id="scope-org-owned">
+                                <span class="radio-custom"></span>
+                                Organization-owned devices only
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="scope" value="both" id="scope-both" checked>
+                                <span class="radio-custom"></span>
+                                Both personal and organization-owned devices
+                            </label>
+                        </div>
+                    </div>
+                    <div class="button-row">
+                        <button class="btn back-btn" data-prev="1"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="btn next-btn" data-next="3">Continue <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question-card" id="question-3">
+                    <h2>Security Requirements</h2>
+                    <p class="question-text">Which security measures should be required on devices covered by this policy? <span class="required">*</span></p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="security" value="passcode" id="security-passcode" checked>
+                            <span class="checkbox-custom"></span>
+                            PIN, passcode, or biometric lock
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="security" value="encryption" id="security-encryption" checked>
+                            <span class="checkbox-custom"></span>
+                            Device encryption enabled
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="security" value="updates" id="security-updates" checked>
+                            <span class="checkbox-custom"></span>
+                            Timely operating system and security updates
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="security" value="remote-wipe" id="security-remote-wipe" checked>
+                            <span class="checkbox-custom"></span>
+                            Consent to remote wipe of organizational data
+                        </label>
+                    </div>
+                    <div class="button-row">
+                        <button class="btn back-btn" data-prev="2"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="btn next-btn" data-next="4" data-skip-if="scope-org-owned">Continue <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Question 4 (skipped if scope is org-owned only) -->
+                <div class="question-card" id="question-4">
+                    <h2>BYOD App &amp; Data Separation</h2>
+                    <p class="question-text">For personal devices, how should organizational data be kept separate from personal data?</p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="separation" value="container" id="separation-container" checked>
+                            <span class="checkbox-custom"></span>
+                            Organizational email and apps must be accessed through a separate managed app or work profile
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="separation" value="no-local-storage" id="separation-no-local-storage" checked>
+                            <span class="checkbox-custom"></span>
+                            Organizational files/data may not be permanently stored on the personal device
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="separation" value="personal-apps-allowed" id="separation-personal-apps-allowed" checked>
+                            <span class="checkbox-custom"></span>
+                            Personal apps and use are otherwise allowed and will not be monitored
+                        </label>
+                    </div>
+                    <div class="button-row">
+                        <button class="btn back-btn" data-prev="3"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="btn next-btn" data-next="5">Continue <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="question-card" id="question-5">
+                    <h2>Lost or Stolen Devices</h2>
+                    <div class="form-group">
+                        <label for="report-hours">Within how many hours should a lost or stolen device be reported? <span class="required">*</span></label>
+                        <input type="number" id="report-hours" placeholder="e.g., 24" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="report-method">How should staff report a lost or stolen device? (optional)</label>
+                        <textarea id="report-method" rows="2" placeholder="e.g., email it@yournonprofit.org and call the office"></textarea>
+                    </div>
+                    <div class="button-row">
+                        <button class="btn back-btn" data-prev="4"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="btn next-btn" data-next="6">Continue <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Question 6 -->
+                <div class="question-card" id="question-6">
+                    <h2>Reimbursement &amp; Offboarding</h2>
+                    <div class="form-group">
+                        <label>Does your organization offer a stipend or reimbursement for personal device use? (optional)</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="reimbursement" value="yes" id="reimbursement-yes">
+                                <span class="radio-custom"></span>
+                                Yes
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="reimbursement" value="no" id="reimbursement-no" checked>
+                                <span class="radio-custom"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group" id="reimbursement-details-container" style="display: none;">
+                        <label for="reimbursement-details">Briefly describe the stipend or reimbursement (optional)</label>
+                        <textarea id="reimbursement-details" rows="2" placeholder="e.g., $25/month toward your personal phone plan"></textarea>
+                    </div>
+                    <div class="button-row">
+                        <button class="btn back-btn" data-prev="5">Back</button>
+                        <button class="btn generate-btn" id="generate-policy">Generate Policy <i class="fas fa-file-alt"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toggle Button for Wizard -->
+        <div class="toggle-wizard-container" id="toggle-wizard-container" style="display: none;">
+            <button class="btn toggle-wizard-btn" id="toggle-wizard-btn">
+                <i class="fas fa-chevron-down"></i> Show/Hide Form
+            </button>
+        </div>
+
+        <!-- Generated Policy Display Section -->
+        <div class="policy-display" id="policy-display" style="display: none;">
+            <div id="success-message" class="success-message">
+                <i class="fas fa-check-circle"></i> Your mobile device policy has been generated successfully!
+            </div>
+
+            <div class="copy-buttons">
+                <button class="btn copy-btn" data-format="plaintext">
+                    <i class="fas fa-file-alt"></i> Copy as Plain Text
+                </button>
+                <button class="btn copy-btn" data-format="markdown">
+                    <i class="fa-brands fa-markdown"></i> Copy as Markdown
+                </button>
+                <button class="btn copy-btn" data-format="richtext">
+                    <i class="fa-solid fa-code"></i> Copy as HTML
+                </button>
+            </div>
+
+            <div class="policy-content-container">
+                <div id="policy-content" class="policy-content"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+            <a href="https://goodhearttech.org/" target="_blank" rel="noopener">
+                    <span>Created with 💜 by</span>
+                <img src="https://graphics.goodhearttech.org/GHT-AllWhiteLogo-phishsite.png" alt="Good Heart Tech Logo" class="logo">
+            </a>
+            </div>
+            <div class="footer-copyright">
+            <p>&copy; <span id="current-year"></span> Good Heart Tech. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="../"><i class="fa-solid fa-arrow-left-long"></i> Back to Policy Generator Home</a> | <a href="../disclaimer.html">Disclaimer</a> | <a target="_blank" href="https://github.com/Good-Heart-Technology/Nonprofit-Policy-Generator">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../shared/engine.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

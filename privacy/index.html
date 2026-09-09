@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nonprofit Privacy Policy Generator</title>
+    <link rel="icon" type="image/svg+xml" href="assets/file-solid.svg">
+    <link rel="stylesheet" href="../shared/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-theme">
+    <header class="header">
+        <div class="header-content">
+            <h1>Nonprofit Privacy Policy Generator</h1>
+        </div>
+        <div class="header-nav">
+            <a href="../" class="back-btn-header">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            <div class="provider">
+                <span>Provided by</span>
+                <a href="https://goodhearttech.org/" target="_blank" rel="noopener">
+                    <img src="https://graphics.goodhearttech.org/GHT-AllWhiteLogo-phishsite.png" alt="Good Heart Tech Logo" class="logo">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="wizard-container" id="wizard-container">
+            <!-- Introduction -->
+            <div class="intro-section">
+                <h4>A Privacy Policy should explain how an organization handles personal data and cookies, and inform users of their rights and data management options.</h4>
+                <div class="info-bubble">
+                    <div class="info-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="info-content">
+                        If folks from the European Union (EU) visit your website, GPDR applies to your organization, and <a href="https://gdpr.eu/cookies/#:~:text=Receive%20users%E2%80%99%20consent%20before%20you%20use%20any%20cookies%20except%20strictly%20necessary%20cookies.">you'll need a cookie consent banner</a>—not just a privacy policy. Users must be able to accept, reject, or manage non-essential cookies before they're stored. <a href="https://ico.org.uk/media/for-organisations/documents/1545/cookies_guidance.pdf" target="_blank" rel="noopener">Technical details here.</a>
+                    </div>
+                </div>
+
+                <a href="../disclaimer.html" class="disclaimer-btn"><i class="fas fa-exclamation-circle"></i> View our full disclaimer before using this tool.</a>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="progress-steps">
+                    <div class="step active" data-step="1">1</div>
+                    <div class="step" data-step="2">2</div>
+                    <div class="step" data-step="3">3</div>
+                    <div class="step" data-step="4">4</div>
+                </div>
+                <div class="progress-labels">
+                    <span>Step <span id="current-step">1</span> of 4</span>
+                </div>
+            </div>
+
+            <!-- Question Forms -->
+            <div class="question-forms">
+                <!-- Question 1 -->
+                <div class="question-card active" id="question-1">
+                    <h2>Organization Information</h2>
+                    <div class="form-group">
+                        <label for="org-name">What is your organization's name? <span class="required">*</span></label>
+                        <input type="text" id="org-name" placeholder="e.g., Good Heart Technology" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="org-website">What is your website URL? <span class="required">*</span></label>
+                        <input type="url" id="org-website" placeholder="e.g., https://goodhearttech.org" required>
+                        <div class="validation-message" id="url-validation-message"></div>
+                    </div>
+                    <div class="button-row">
+                        <button class="btn next-btn" data-next="2">Continue <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question-card" id="question-2">
+                    <h2>Data Collection</h2>
+                    <p class="question-text">What types of personal information do you collect? <span class="required">*</span></p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="data-type" value="none" id="no-data-collection">
+                            <span class="checkbox-custom"></span>
+                            We don't collect any personal information
+                        </label>
+                        <div class="data-collection-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="data-type" value="name">
+                                <span class="checkbox-custom"></span>
+                                Names
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="data-type" value="email">
+                                <span class="checkbox-custom"></span>
+                                Email Addresses
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="data-type" value="address">
+                                <span class="checkbox-custom"></span>
+                                Physical Addresses
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="data-type" value="phone">
+                                <span class="checkbox-custom"></span>
+                                Phone Numbers
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="data-type" value="donation">
+                                <span class="checkbox-custom"></span>
+                                Donation Information
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="data-type" value="other">
+                                <span class="checkbox-custom"></span>
+                                Other
+                            </label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group" id="third-party-services-container" style="display: none;">
+                        <label for="third-party-services">Which third-party services or processors does your organization use to handle personal data? <span class="required">*</span></label>
+                        <p>Example: <i>Stripe for donations, Google Analytics for website tracking, Mailchimp for email newsletters</i></p>
+                        <textarea id="third-party-services" name="third-party-services" rows="4"></textarea>
+                    </div>
+                    <div class="form-group" id="data-sharing-container" style="display: none;">
+                        <label>Do you share user data with third parties, excluding service providers (e.g., CRMs, email platforms, donor management tools)? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="data-sharing" value="yes">
+                                <span class="radio-custom"></span>
+                                Yes
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="data-sharing" value="no">
+                                <span class="radio-custom"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                    <div class="button-row">
+                        <button class="btn back-btn" data-prev="1"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="btn next-btn" data-next="3">Continue <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Question 3 (Cookie Usage) -->
+                <div class="question-card" id="question-3">
+                    <h2>Cookie Usage</h2>
+                    <p class="question-text">Does your website use cookies? If so, what types? <span class="required">*</span></p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="cookie-type" value="essential" id="essential-cookies" checked>
+                            <span class="checkbox-custom"></span>
+                            Essential/Functional Cookies
+                            <div class="info-bubble small">
+                                <div class="info-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <div class="info-content">
+                                    Necessary for your website to function properly. They enable basic features like page navigation, secure areas, and remembering user preferences.
+                                </div>
+                            </div>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="cookie-type" value="analytics" id="analytics-cookies" checked>
+                            <span class="checkbox-custom"></span>
+                            Analytics Cookies (e.g., Google Analytics)
+                            <div class="info-bubble small">
+                                <div class="info-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <div class="info-content">
+                                    Help you understand how visitors interact with your website by collecting anonymous data about page visits and user behavior.
+                                </div>
+                            </div>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="cookie-type" value="marketing">
+                            <span class="checkbox-custom"></span>
+                            Marketing/Advertising Cookies
+                            <div class="info-bubble small">
+                                <div class="info-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <div class="info-content">
+                                    Track visitors across websites to display relevant advertisements and measure campaign effectiveness.
+                                </div>
+                            </div>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="cookie-type" value="social">
+                            <span class="checkbox-custom"></span>
+                            Social Media Cookies
+                            <div class="info-bubble small">
+                                <div class="info-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <div class="info-content">
+                                    Enable social media features on your website, such as sharing content or using social login options.
+                                </div>
+                            </div>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="cookie-type" value="none">
+                            <span class="checkbox-custom"></span>
+                            We Don't Use Cookies
+                            <div class="info-bubble small">
+                                <div class="info-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <div class="info-content">
+                                    Select this if your website doesn't use any cookies or tracking technologies.
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="button-row">
+                        <button class="btn back-btn" data-prev="2"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="btn next-btn" data-next="4">Continue <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Question 4 (Contact Information) -->
+                <div class="question-card" id="question-4">
+                    <h2>Contact Information</h2>
+                    <div class="form-group">
+                        <label for="contact-email">What email address should users contact for privacy inquiries? <span class="required">*</span></label>
+                        <input type="email" id="contact-email" placeholder="e.g., privacy@yournonprofit.org" required>
+                    </div>
+                    <div class="button-row">
+                        <button class="btn back-btn" data-prev="3"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="btn generate-btn" id="generate-policy">Generate Policy <i class="fas fa-file-alt"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toggle Button for Wizard -->
+        <div class="toggle-wizard-container" id="toggle-wizard-container" style="display: none;">
+            <button class="btn toggle-wizard-btn" id="toggle-wizard-btn">
+                <i class="fas fa-chevron-down"></i> Show/Hide Form
+            </button>
+        </div>
+
+        <!-- Generated Policy Display Section -->
+        <div class="policy-display" id="policy-display" style="display: none;">
+            <div id="success-message" class="success-message">
+                <i class="fas fa-check-circle"></i> Your privacy policy has been generated successfully!
+            </div>
+
+            <div class="copy-buttons">
+                <button class="btn copy-btn" data-format="plaintext">
+                    <i class="fas fa-file-alt"></i> Copy as Plain Text
+                </button>
+                <button class="btn copy-btn" data-format="markdown">
+                    <i class="fa-brands fa-markdown"></i> Copy as Markdown
+                </button>
+                <button class="btn copy-btn" data-format="richtext">
+                    <i class="fa-solid fa-code"></i> Copy as HTML
+                </button>
+            </div>
+
+            <div class="policy-content-container">
+                <div id="policy-content" class="policy-content"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+            <a href="https://goodhearttech.org/" target="_blank" rel="noopener">
+                    <span>Created with 💜 by</span>
+                <img src="https://graphics.goodhearttech.org/GHT-AllWhiteLogo-phishsite.png" alt="Good Heart Tech Logo" class="logo">
+            </a>
+            </div>
+            <div class="footer-copyright">
+            <p>&copy; <span id="current-year"></span> Good Heart Tech. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="../"><i class="fa-solid fa-arrow-left-long"></i> Back to Policy Generator Home</a> | <a href="../disclaimer.html">Disclaimer</a> | <a target="_blank" href="https://github.com/Good-Heart-Technology/Nonprofit-Policy-Generator">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../shared/engine.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

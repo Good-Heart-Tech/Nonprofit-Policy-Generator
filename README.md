@@ -8,16 +8,24 @@ Good Heart Tech is dedicated to supporting nonprofit organizations by providing 
 
 ## About the Application
 
-This application provides interactive policy generators for:
+This is a single static site (plain HTML/CSS/vanilla JS, no build step) deployed as one Cloudflare Pages project with path-based routing. It hosts a hub page plus four policy wizards:
 
-- Privacy Policy & Cookies Policy Generator
-- Acceptable Use Policy Generator (Coming Soon)
-- Artificial Intelligence Policy Generator
-- Mobile Device Policy Generator (Coming Soon)
+- `/privacy/` — Privacy & Cookies Policy Generator
+- `/acceptable-use/` — Acceptable Use Policy Generator
+- `/ai-use/` — Artificial Intelligence Use Policy Generator
+- `/mobile-device/` — Mobile Device Policy Generator
 
 ### How It Works
 
 When you launch any of the generators, you'll be guided through a series of questions about your organization. Based on your responses, the system will instantly generate a customized policy document that aligns with your organization's needs.
+
+### Structure
+
+- `index.html`, `styles.css`, `script.js` — the hub landing page
+- `shared/engine.js` — the wizard engine shared by every policy generator: step navigation, the progress bar, the skip-a-step logic (`data-skip-if`), markdown-to-HTML rendering, and copy-to-clipboard. Each policy page supplies its own step markup plus `window.generatePolicyContent()` (and optionally `window.validateStep()` / `window.onWizardInit()`)
+- `shared/styles.css` — the CSS shared by every wizard page
+- `privacy/`, `acceptable-use/`, `ai-use/`, `mobile-device/` — one folder per policy generator, each with its own `index.html` and `script.js`
+- `disclaimer.html`, `PrivacyPolicy.html` — shared pages linked to from every policy generator
 
 ### Open Source Commitment
 
@@ -31,4 +39,4 @@ Please review our [full disclaimer](/disclaimer.html) before using this applicat
 
 ## License
 
-This project is open source and available under the GNU General Public License v3.0. 
+This project is open source and available under the GNU General Public License v3.0.
