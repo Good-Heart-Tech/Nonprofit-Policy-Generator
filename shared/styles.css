@@ -211,26 +211,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 .disclaimer-btn {
-    display: inline-flex;
-    align-items: center;
-    color: var(--ght-palette-rich-black);
-    background-color: var(--ght-palette-hudu-light);
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    transition: var(--transition);
     margin-top: 10px;
-}
-
-.disclaimer-btn:hover {
-    background-color: var(--primary-color);
-    color: var(--ght-palette-white);
-    text-decoration: none;
-}
-
-.disclaimer-btn i {
-    margin-right: 5px;
+    font-size: 0.9rem;
 }
 
 /* ===== Form Elements ===== */
@@ -268,28 +250,41 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 .step {
-    width: 30px;
-    height: 30px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
-    background-color: var(--border-color);
+    background-color: var(--ght-palette-white);
+    border: 2px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 1px;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 400;
     color: var(--ght-palette-rich-black);
     transition: var(--transition);
 }
 
+.step-check { display: none; flex-shrink: 0; }
+
+/* Current step: bold number, thick outline, primary fill. Not color alone. */
 .step.active {
-    background-color: var(--primary-color);
+    background-color: var(--ght-palette-hudu-primary);
+    border-color: var(--ght-palette-rich-black);
+    outline: 3px solid var(--ght-palette-hudu-primary);
+    outline-offset: 2px;
     color: var(--ght-palette-white);
+    font-weight: 800;
 }
 
+/* Finished steps: number plus a check mark */
 .step.completed {
-    background-color: var(--success-color);
-    color: var(--ght-palette-white);
+    background-color: var(--ght-palette-hudu-light);
+    border-color: var(--ght-palette-hudu-primary);
+    color: var(--ght-palette-rich-black);
+    font-weight: 600;
 }
+.step.completed .step-check { display: block; }
 
 .progress-labels {
     display: flex;
@@ -512,49 +507,8 @@ textarea:focus {
     margin-top: 30px;
 }
 
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 24px;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 600;
-    font-family: inherit;
-    cursor: pointer;
-    border: none;
-    transition: var(--transition);
-    background-color: transparent;
-    color: var(--text-color);
-}
-
-.next-btn {
-    background-color: var(--primary-color);
-    color: var(--ght-palette-white);
-}
-
-.next-btn:hover {
-    background-color: var(--primary-hover);
-}
-
-.back-btn {
-    background-color: transparent;
-    border: 1px solid var(--input-border);
-    color: var(--ght-palette-rich-black);
-}
-
-.back-btn:hover {
-    background-color: var(--ght-palette-hudu-light);
-}
-
-.generate-btn {
-    background-color: var(--success-color);
-    color: var(--ght-palette-white);
-}
-
-.generate-btn:hover {
-    background-color: var(--success-hover);
-}
+/* Visual style comes from ght-buttons.css (.ght-btn). Layout only here. */
+.next-btn, .generate-btn { margin-left: auto; }
 
 /* ===== Validation ===== */
 .required {
@@ -572,21 +526,7 @@ textarea:focus {
 
 /* ===== Header Back Button / Wizard Toggle ===== */
 .back-btn-header {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--ght-palette-rich-black);
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 4px;
     font-size: 0.9rem;
-    transition: var(--transition);
-    background-color: var(--ght-palette-white);
-    border: 1px solid var(--input-border);
-}
-
-.back-btn-header:hover {
-    background-color: var(--ght-palette-hudu-light);
 }
 
 .back-btn-header i {
@@ -599,22 +539,7 @@ textarea:focus {
 }
 
 .toggle-wizard-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background-color: var(--ght-palette-white);
-    color: var(--ght-palette-rich-black);
-    border: 1px solid var(--input-border);
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
     font-size: 0.9rem;
-    transition: var(--transition);
-}
-
-.toggle-wizard-btn:hover {
-    background-color: var(--ght-palette-hudu-light);
 }
 
 /* ===== Policy Display ===== */
@@ -650,20 +575,7 @@ textarea:focus {
 }
 
 .copy-btn {
-    background-color: var(--primary-color);
-    color: var(--ght-palette-white);
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
     font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.copy-btn:hover {
-    background-color: var(--ght-palette-rich-black);
 }
 
 /* Generated document output: unchanged (white page, black text) */
@@ -767,8 +679,8 @@ textarea:focus {
     }
 
     .step {
-        width: 25px;
-        height: 25px;
+        width: 30px;
+        height: 30px;
         font-size: 0.8rem;
     }
 
@@ -777,9 +689,11 @@ textarea:focus {
         gap: 15px;
     }
 
-    .btn {
+    .button-row .ght-btn {
         width: 100%;
     }
+
+    .next-btn, .generate-btn { margin-left: 0; }
 
     .back-btn {
         order: 2;

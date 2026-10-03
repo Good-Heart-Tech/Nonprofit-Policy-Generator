@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
     <link rel="stylesheet" href="../ght-variables.css">
+    <link rel="stylesheet" href="../ght-buttons.css">
     <link rel="stylesheet" href="../shared/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -19,7 +20,7 @@
             <h1>Nonprofit Acceptable Use Policy Generator</h1>
         </div>
         <div class="header-nav">
-            <a href="../" class="back-btn-header">
+            <a href="../" class="ght-btn back-btn-header">
                 <i class="fas fa-arrow-left"></i> Back to Home
             </a>
             <div class="provider">
@@ -45,7 +46,7 @@
                     </div>
                 </div>
 
-                <a href="../disclaimer.html" class="disclaimer-btn"><i class="fas fa-exclamation-circle"></i> View our full disclaimer before using this tool.</a>
+                <a href="../disclaimer.html" class="ght-btn disclaimer-btn"><i class="fas fa-exclamation-circle"></i> View our full disclaimer before using this tool.</a>
             </div>
 
             <!-- Progress Bar -->
@@ -54,11 +55,11 @@
                     <div class="progress-fill" id="progress-fill"></div>
                 </div>
                 <div class="progress-steps">
-                    <div class="step active" data-step="1">1</div>
-                    <div class="step" data-step="2">2</div>
-                    <div class="step" data-step="3">3</div>
-                    <div class="step" data-step="4">4</div>
-                    <div class="step" data-step="5">5</div>
+                    <div class="step active" data-step="1" aria-current="step"><span class="step-num">1</span><svg class="step-check" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <div class="step" data-step="2"><span class="step-num">2</span><svg class="step-check" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <div class="step" data-step="3"><span class="step-num">3</span><svg class="step-check" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <div class="step" data-step="4"><span class="step-num">4</span><svg class="step-check" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <div class="step" data-step="5"><span class="step-num">5</span><svg class="step-check" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 </div>
                 <div class="progress-labels">
                     <span>Step <span id="current-step">1</span> of 5</span>
@@ -79,7 +80,7 @@
                         <input type="email" id="contact-email" placeholder="e.g., it@yournonprofit.org" required>
                     </div>
                     <div class="button-row">
-                        <button class="btn next-btn" data-next="2">Continue <i class="fas fa-arrow-right"></i></button>
+                        <button class="ght-btn ght-btn--primary btn next-btn" data-next="2">Continue <i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
 
@@ -119,8 +120,8 @@
                         <textarea id="resource-other" name="resource-other" rows="2" placeholder="e.g., shared printers, phone systems"></textarea>
                     </div>
                     <div class="button-row">
-                        <button class="btn back-btn" data-prev="1"><i class="fas fa-arrow-left"></i> Back</button>
-                        <button class="btn next-btn" data-next="3">Continue <i class="fas fa-arrow-right"></i></button>
+                        <button class="ght-btn btn back-btn" data-prev="1"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="ght-btn ght-btn--primary btn next-btn" data-next="3">Continue <i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
 
@@ -165,8 +166,8 @@
                         <textarea id="prohibited-other" name="prohibited-other" rows="2" placeholder="e.g., cryptocurrency mining, running a personal business"></textarea>
                     </div>
                     <div class="button-row">
-                        <button class="btn back-btn" data-prev="2"><i class="fas fa-arrow-left"></i> Back</button>
-                        <button class="btn next-btn" data-next="4">Continue <i class="fas fa-arrow-right"></i></button>
+                        <button class="ght-btn btn back-btn" data-prev="2"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="ght-btn ght-btn--primary btn next-btn" data-next="4">Continue <i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
 
@@ -193,8 +194,8 @@
                         <textarea id="monitoring-details" name="monitoring-details" rows="3" placeholder="e.g., email is scanned for security threats, device activity may be logged by our IT provider"></textarea>
                     </div>
                     <div class="button-row">
-                        <button class="btn back-btn" data-prev="3"><i class="fas fa-arrow-left"></i> Back</button>
-                        <button class="btn next-btn" data-next="5">Continue <i class="fas fa-arrow-right"></i></button>
+                        <button class="ght-btn btn back-btn" data-prev="3"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="ght-btn ght-btn--primary btn next-btn" data-next="5">Continue <i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
 
@@ -217,8 +218,8 @@
                         </div>
                     </div>
                     <div class="button-row">
-                        <button class="btn back-btn" data-prev="4"><i class="fas fa-arrow-left"></i> Back</button>
-                        <button class="btn generate-btn" id="generate-policy">Generate Policy <i class="fas fa-file-alt"></i></button>
+                        <button class="ght-btn btn back-btn" data-prev="4"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="ght-btn ght-btn--primary btn generate-btn" id="generate-policy">Generate Policy <i class="fas fa-file-alt"></i></button>
                     </div>
                 </div>
             </div>
@@ -226,7 +227,7 @@
 
         <!-- Toggle Button for Wizard -->
         <div class="toggle-wizard-container" id="toggle-wizard-container" style="display: none;">
-            <button class="btn toggle-wizard-btn" id="toggle-wizard-btn">
+            <button class="ght-btn btn toggle-wizard-btn" id="toggle-wizard-btn">
                 <i class="fas fa-chevron-down"></i> Show/Hide Form
             </button>
         </div>
@@ -238,13 +239,13 @@
             </div>
 
             <div class="copy-buttons">
-                <button class="btn copy-btn" data-format="plaintext">
+                <button class="ght-btn btn copy-btn" data-format="plaintext">
                     <i class="fas fa-file-alt"></i> Copy as Plain Text
                 </button>
-                <button class="btn copy-btn" data-format="markdown">
+                <button class="ght-btn btn copy-btn" data-format="markdown">
                     <i class="fa-brands fa-markdown"></i> Copy as Markdown
                 </button>
-                <button class="btn copy-btn" data-format="richtext">
+                <button class="ght-btn btn copy-btn" data-format="richtext">
                     <i class="fa-solid fa-code"></i> Copy as HTML
                 </button>
             </div>

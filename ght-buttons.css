@@ -1,0 +1,68 @@
+/* Good Heart Tech buttons. Rules: visual/buttons.md
+   Needs tokens/exports/css/variables.css loaded first (--ght-palette-*, --ght-font-*).
+   .ght-btn           soft (everyday actions)
+   .ght-btn--primary  filled (the one main action per view)
+   .ght-btn--small    dense tables only */
+.ght-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 40px;
+  padding: 0.55rem 1.1rem;
+  font: inherit;
+  font-family: var(--ght-font-family-body);
+  font-weight: var(--ght-font-weight-semibold);
+  font-size: var(--ght-font-size-base);
+  line-height: 1.2;
+  text-decoration: none;
+  color: var(--ght-palette-rich-black);
+  background: var(--ght-palette-hudu-light);
+  border: 2px solid var(--ght-palette-hudu-light);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+.ght-btn:hover {
+  color: var(--ght-palette-white);
+  background: var(--ght-palette-hudu-primary);
+  border-color: var(--ght-palette-hudu-primary);
+}
+.ght-btn:focus-visible {
+  outline: 3px solid var(--ght-palette-primary);
+  outline-offset: 2px;
+}
+.ght-btn--primary {
+  color: var(--ght-palette-white);
+  background: var(--ght-palette-hudu-primary);
+  border-color: var(--ght-palette-hudu-primary);
+}
+.ght-btn--primary:hover {
+  color: var(--ght-palette-white);
+  background: var(--ght-palette-rich-black);
+  border-color: var(--ght-palette-rich-black);
+}
+.ght-btn--small {
+  min-height: 32px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.875rem;
+}
+.ght-btn:disabled,
+.ght-btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.ght-btn:disabled:hover,
+.ght-btn[aria-disabled="true"]:hover {
+  color: var(--ght-palette-rich-black);
+  background: var(--ght-palette-hudu-light);
+  border-color: var(--ght-palette-hudu-light);
+}
+.ght-btn--primary:disabled:hover {
+  color: var(--ght-palette-white);
+  background: var(--ght-palette-hudu-primary);
+  border-color: var(--ght-palette-hudu-primary);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ght-btn { transition: none; }
+}

@@ -90,6 +90,7 @@ function initWizardNavigation() {
             const stepNumber = index + 1;
             step.classList.toggle('completed', stepNumber < currentStep);
             step.classList.toggle('active', stepNumber === currentStep);
+            if (stepNumber === currentStep) { step.setAttribute('aria-current', 'step'); } else { step.removeAttribute('aria-current'); }
         });
     }
 }

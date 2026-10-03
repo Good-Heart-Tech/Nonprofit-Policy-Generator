@@ -70,24 +70,16 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--ght-palette-pri
 .policy-tile h2 { margin-bottom: 1rem; font-size: 1.5rem; }
 
 .launch-btn {
-    background: var(--ght-palette-hudu-primary);
-    color: var(--ght-palette-white);
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-weight: 600;
     width: 80%;
     margin-top: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
 }
-.launch-btn i { font-size: 0.875rem; color: var(--ght-palette-white); }
-.policy-tile:hover .launch-btn:not(.disabled-btn) { background: var(--ght-palette-rich-black); }
-.disabled-btn { background: var(--border); color: var(--ght-palette-rich-black); cursor: not-allowed; }
+.launch-btn i { font-size: 0.875rem; }
+/* The whole tile is the link, so hovering the tile shows the button hover state */
+.policy-tile:hover .launch-btn {
+    color: var(--ght-palette-white);
+    background: var(--ght-palette-hudu-primary);
+    border-color: var(--ght-palette-hudu-primary);
+}
 
 /* ===== Disclaimer Box (home) ===== */
 .disclaimer { max-width: 800px; margin: 0 auto 3rem; padding: 2rem; background: var(--wash); border: 1px solid var(--border); border-radius: 0.5rem; }
@@ -96,44 +88,17 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--ght-palette-pri
 .disclaimer .emphasis { font-weight: 600; }
 .disclaimer-button-container { display: flex; justify-content: center; margin-top: 1.5rem; }
 
-.disclaimer-button, .back-link .btn {
-    background: var(--ght-palette-hudu-primary);
-    color: var(--ght-palette-white);
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-.disclaimer-button:hover, .back-link .btn:hover { background: var(--ght-palette-rich-black); color: var(--ght-palette-white); transform: translateY(-2px); }
 .disclaimer-button i { font-size: 1.1rem; }
 
 /* ===== FAQ Section ===== */
 .faq-section { max-width: 800px; margin: 0 auto 3rem; }
 .faq-toggle {
     width: 100%;
-    padding: 1rem 1.5rem;
-    background: var(--ght-palette-hudu-light);
-    border: 1px solid var(--ght-palette-hudu-primary);
-    border-radius: 0.5rem;
-    color: var(--ght-palette-rich-black);
-    font-weight: 600;
-    font-size: 1rem;
-    font-family: inherit;
-    text-align: left;
-    cursor: pointer;
-    display: flex;
     justify-content: space-between;
-    align-items: center;
-    transition: all 0.3s ease;
+    text-align: left;
     position: relative;
 }
-.faq-toggle:hover { background: var(--ght-palette-hudu-primary); color: var(--ght-palette-white); transform: translateY(-2px); }
+
 .toggle-icon { display: flex; align-items: center; justify-content: center; flex-shrink: 0; background-color: var(--ght-palette-white); color: var(--ght-palette-rich-black); width: 30px; height: 30px; border-radius: 50%; margin-left: 10px; transition: transform 0.3s ease; }
 .toggle-icon.rotated { transform: rotate(180deg); }
 .faq-content { display: none; padding: 1.5rem; margin-top: 1rem; background: var(--ght-palette-white); border-radius: 0.5rem; box-shadow: var(--shadow-soft); border: 1px solid var(--border); border-left: 4px solid var(--ght-palette-hudu-primary); }
