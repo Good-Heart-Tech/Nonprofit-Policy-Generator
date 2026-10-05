@@ -3,17 +3,17 @@
  * Light theme built on the Good Heart Tech brand kit tokens in ../ght-variables.css.
  */
 :root {
-    --primary-color: var(--ght-palette-hudu-primary);
+    --primary-color: var(--ght-palette-primary-dark);
     --primary-hover: var(--ght-palette-rich-black);
     --success-color: #17653A;
     --success-hover: var(--ght-palette-rich-black);
     --success-bg: #E6F5EB;
     --danger-color: #9B1C1C;
-    --wash: color-mix(in srgb, var(--ght-palette-hudu-light) 30%, white);
+    --wash: color-mix(in srgb, var(--ght-palette-primary-tint) 30%, white);
     --card-bg: var(--ght-palette-white);
     --input-bg: var(--ght-palette-white);
-    --border-color: var(--ght-palette-hudu-light);
-    --input-border: var(--ght-palette-hudu-primary);
+    --border-color: var(--ght-palette-primary-tint);
+    --input-border: var(--ght-palette-primary-dark);
     --text-color: var(--ght-palette-charcoal);
     --text-muted: var(--ght-palette-charcoal);
     --shadow: 0 2px 10px rgba(9, 29, 32, 0.08);
@@ -269,9 +269,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 /* Current step: bold number, thick outline, primary fill. Not color alone. */
 .step.active {
-    background-color: var(--ght-palette-hudu-primary);
+    background-color: var(--ght-palette-primary-dark);
     border-color: var(--ght-palette-rich-black);
-    outline: 3px solid var(--ght-palette-hudu-primary);
+    outline: 3px solid var(--ght-palette-primary-dark);
     outline-offset: 2px;
     color: var(--ght-palette-white);
     font-weight: 800;
@@ -279,8 +279,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 /* Finished steps: number plus a check mark */
 .step.completed {
-    background-color: var(--ght-palette-hudu-light);
-    border-color: var(--ght-palette-hudu-primary);
+    background-color: var(--ght-palette-primary-tint);
+    border-color: var(--ght-palette-primary-dark);
     color: var(--ght-palette-rich-black);
     font-weight: 600;
 }
@@ -444,7 +444,7 @@ textarea:focus {
 
 .checkbox-label:hover input ~ .checkbox-custom,
 .radio-label:hover input ~ .radio-custom {
-    background-color: var(--ght-palette-hudu-light);
+    background-color: var(--ght-palette-primary-tint);
 }
 
 .checkbox-label input:focus-visible ~ .checkbox-custom,
@@ -653,18 +653,18 @@ textarea:focus {
 }
 
 /* ===== Good Heart Tech standard footer (light) ===== */
-.ght-footer { width: 100%; margin-top: auto; padding: 22px 24px 26px; text-align: center; background: color-mix(in srgb, var(--ght-palette-hudu-light) 30%, white); border-top: 1px solid var(--ght-palette-hudu-light); color: var(--ght-palette-charcoal); }
+.ght-footer { width: 100%; margin-top: auto; padding: 22px 24px 26px; text-align: center; background: color-mix(in srgb, var(--ght-palette-primary-tint) 30%, white); border-top: 1px solid var(--ght-palette-primary-tint); color: var(--ght-palette-charcoal); }
 .ght-footer-note { max-width: 52rem; margin: 0 auto 16px; font-size: .8125rem; font-style: italic; }
 .ght-footer-row { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; }
 .ght-footer-logo img { display: block; height: 30px; width: auto; }
 .ght-footer-copy { font-size: .9375rem; }
 .ght-footer-links { font-size: .9375rem; }
-.ght-footer-links a { color: var(--ght-palette-hudu-primary); text-decoration: underline; }
+.ght-footer-links a { color: var(--ght-palette-primary-dark); text-decoration: underline; }
 .ght-footer-links a:hover { color: var(--ght-palette-rich-black); }
-.ght-footer-donate { display: inline-flex; line-height: 1.2; align-items: center; gap: 8px; padding: 9px 22px; border-radius: 8px; background: var(--ght-palette-hudu-primary); color: var(--ght-palette-white); font-weight: var(--ght-font-weight-semibold); text-decoration: none; }
+.ght-footer-donate { display: inline-flex; line-height: 1.2; align-items: center; gap: 8px; padding: 9px 22px; border-radius: 8px; background: var(--ght-palette-primary-dark); color: var(--ght-palette-white); font-weight: var(--ght-font-weight-semibold); text-decoration: none; }
 .ght-footer-donate:hover { background: var(--ght-palette-rich-black); color: var(--ght-palette-white); }
 .ght-footer-github { display: inline-flex; color: var(--ght-palette-rich-black); }
-.ght-footer-github:hover { color: var(--ght-palette-hudu-primary); }
+.ght-footer-github:hover { color: var(--ght-palette-primary-dark); }
 .ght-footer a:focus-visible { outline: 3px solid var(--ght-palette-primary); outline-offset: 3px; }
 
 /* ===== Responsive ===== */
